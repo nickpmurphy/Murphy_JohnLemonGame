@@ -5,12 +5,15 @@ using UnityEngine;
 public class Observer : MonoBehaviour
 {
 
+    // instantiators
     public Transform player;
     public GameEnding gameEnding;
     bool m_IsPlayerInRange;
 
+
     void OnTriggerEnter(Collider other)
     {
+      // if collider comes in contact with main player
       if(other.transform == player)
       {
         m_IsPlayerInRange = true;
@@ -19,16 +22,19 @@ public class Observer : MonoBehaviour
 
     void OnTriggerExit(Collider other)
     {
+      // if collider comes in contact with main player
       if(other.transform == player)
       {
         m_IsPlayerInRange = false;
       }
     }
 
+
     void Update()
     {
       if(m_IsPlayerInRange)
       {
+        // if collider sees player, change direction point ray at player
         Vector3 direction = player.position - transform.position + Vector3.up;
         Ray ray = new Ray (transform.position, direction);
         RaycastHit raycastHit;
@@ -41,12 +47,4 @@ public class Observer : MonoBehaviour
         }
       }
     }
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-
 }

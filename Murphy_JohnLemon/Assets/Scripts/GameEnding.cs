@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class GameEnding : MonoBehaviour
 {
+    // instantiators
     public float fadeDuration = 1f;
     public float displayImageDuration = 1f;
     public GameObject player;
@@ -17,6 +18,7 @@ public class GameEnding : MonoBehaviour
     float m_Timer;
     bool m_HasAudioPlayed;
 
+    // writing triggers for when player is at exit
     void onTriggerEnter(Collider other)
     {
       if (other.gameObject == player)
@@ -25,17 +27,21 @@ public class GameEnding : MonoBehaviour
       }
     }
 
+    // bool function updating IsPlayerCaught boolean
     public void CaughtPlayer ()
     {
       m_IsPlayerCaught = true;
     }
 
+
     void Update ()
     {
+      // calling end level with proper arguments for if player wins
       if(m_IsPlayerAtExit)
       {
         EndLevel(exitBackgroundImageCanvasGroup, false, exitAudio);
       }
+      // calling end with proper arguments for if player dies
       else if (m_IsPlayerCaught)
       {
         EndLevel(caughtBackgroundImageCanvasGroup, true, caughtAudio);
@@ -45,20 +51,26 @@ public class GameEnding : MonoBehaviour
     void EndLevel (CanvasGroup imageCanvasGroup, bool doRestart, AudioSource audioSource)
     {
 
+      // play audio and set boolean
       if(!m_HasAudioPlayed)
       {
         audioSource.Play();
         m_HasAudioPlayed = true;
       }
-      m_Timer += Time.deltaTime;
 
+      // update timer
+      m_Timer += Time.deltaTime;
+      // set alpha
       imageCanvasGroup.alpha = m_Timer / fadeDuration;
+
       if(m_Timer > fadeDuration + displayImageDuration)
       {
+        // reload if game ends
         if(doRestart)
         {
           SceneManager.LoadScene(0);
         }
+        // quit application
         else
         {
           Application.Quit();
