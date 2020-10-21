@@ -18,7 +18,7 @@ public class GameEnding : MonoBehaviour
     float m_Timer;
     bool m_HasAudioPlayed;
 
-    float timeLeft = 60f;
+    public float timeLeft = 60f;
 
     // writing triggers for when player is at exit
     void onTriggerEnter(Collider other)
