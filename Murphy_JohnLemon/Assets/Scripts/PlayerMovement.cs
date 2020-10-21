@@ -13,6 +13,10 @@ public class PlayerMovement : MonoBehaviour
     Vector3 m_Movement;
     Quaternion m_Rotation = Quaternion.identity;
 
+    public GameObject projectilePrefab;
+    public Transform shotSpawn;
+    public float shotSpeed = 10f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +25,16 @@ public class PlayerMovement : MonoBehaviour
         m_Rigidbody = GetComponent<Rigidbody> ();
         m_AudioSource = GetComponent<AudioSource>();
 
+    }
+
+    public void Update()
+    {
+      if (Input.GetKeyDown(KeyCode.Space))
+      {
+        GameObject projectile = Instantiate(projectilePrefab, shotSpawn.transform.position, projectilePrefab.transform.rotation);
+        Rigidbody projectileRB = projectile.GetComponent<Rigidbody>();
+        projectileRB.velocity = transform.forward * shotSpeed;
+      }
     }
 
     // Update is called once per frame

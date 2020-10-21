@@ -18,6 +18,8 @@ public class GameEnding : MonoBehaviour
     float m_Timer;
     bool m_HasAudioPlayed;
 
+    float timeLeft = 60f;
+
     // writing triggers for when player is at exit
     void onTriggerEnter(Collider other)
     {
@@ -43,6 +45,13 @@ public class GameEnding : MonoBehaviour
       }
       // calling end with proper arguments for if player dies
       else if (m_IsPlayerCaught)
+      {
+        EndLevel(caughtBackgroundImageCanvasGroup, true, caughtAudio);
+      }
+
+      timeLeft -= Time.deltaTime;
+
+      if (timeLeft <= 0)
       {
         EndLevel(caughtBackgroundImageCanvasGroup, true, caughtAudio);
       }
