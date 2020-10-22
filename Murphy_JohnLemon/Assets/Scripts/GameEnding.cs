@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class GameEnding : MonoBehaviour
 {
@@ -17,9 +18,16 @@ public class GameEnding : MonoBehaviour
     bool m_IsPlayerCaught;
     float m_Timer;
     bool m_HasAudioPlayed;
+    public TextMeshProUGUI countText;
 
     public float timeLeft = 60f;
 
+
+
+    void Start()
+    {
+      SetCountText();
+    }
     // writing triggers for when player is at exit
     void onTriggerEnter(Collider other)
     {
@@ -27,6 +35,12 @@ public class GameEnding : MonoBehaviour
       {
         m_IsPlayerAtExit = true;
       }
+    }
+
+    void SetCountText()
+    {
+
+      countText.text = "Time Left: " + timeLeft.ToString();
     }
 
     // bool function updating IsPlayerCaught boolean
@@ -55,6 +69,8 @@ public class GameEnding : MonoBehaviour
       {
         EndLevel(caughtBackgroundImageCanvasGroup, true, caughtAudio);
       }
+
+      SetCountText();
     }
 
     void EndLevel (CanvasGroup imageCanvasGroup, bool doRestart, AudioSource audioSource)

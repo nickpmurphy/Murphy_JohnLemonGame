@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
+
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -18,7 +18,6 @@ public class PlayerMovement : MonoBehaviour
     public Transform shotSpawn;
     public float shotSpeed = 10f;
 
-    public TextMeshProUGUI countText;
 
     // Start is called before the first frame update
     void Start()
@@ -27,14 +26,7 @@ public class PlayerMovement : MonoBehaviour
         m_Animator = GetComponent<Animator> ();
         m_Rigidbody = GetComponent<Rigidbody> ();
         m_AudioSource = GetComponent<AudioSource>();
-        SetCountText();
 
-    }
-
-    void SetCountText()
-    {
-      GameEnding ge = new GameEnding();
-      countText.text = "Time Left: " + ge.timeLeft.ToString();
     }
 
     public void Update()
@@ -46,7 +38,6 @@ public class PlayerMovement : MonoBehaviour
         projectileRB.velocity = transform.forward * shotSpeed;
       }
 
-      SetCountText();
     }
 
     // Update is called once per frame

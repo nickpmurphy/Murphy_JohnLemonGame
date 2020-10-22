@@ -1461,6 +1461,7 @@ MonoBehaviour:
   exitAudio: {fileID: 1774198892}
   caughtBackgroundImageCanvasGroup: {fileID: 1043898687}
   caughtAudio: {fileID: 1407576472}
+  countText: {fileID: 999107132}
   timeLeft: 60
 --- !u!65 &512410951
 BoxCollider:
@@ -2945,7 +2946,7 @@ GameObject:
   - component: {fileID: 999107133}
   - component: {fileID: 999107132}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Timer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2967,7 +2968,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 10, y: -10}
+  m_AnchoredPosition: {x: 115, y: -100}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &999107132
