@@ -45,6 +45,8 @@ public class PlayerMovement : MonoBehaviour
         Rigidbody projectileRB = projectile.GetComponent<Rigidbody>();
         projectileRB.velocity = transform.forward * shotSpeed;
       }
+
+      SetCountText();
     }
 
     // Update is called once per frame
