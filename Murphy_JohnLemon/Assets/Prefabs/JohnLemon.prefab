@@ -1186,7 +1186,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turnSpeed: 20
-  projectilePrefab: {fileID: 7238038816113677966, guid: 14ca702fd165a45deb44bfe4c762716b,
+  projectilePrefab: {fileID: 5036101549373819168, guid: 1821d8e62388748eb80cc0007a03319b,
     type: 3}
   shotSpawn: {fileID: 1114848635966836761}
   shotSpeed: 10

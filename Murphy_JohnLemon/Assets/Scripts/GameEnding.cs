@@ -22,8 +22,6 @@ public class GameEnding : MonoBehaviour
 
     public float timeLeft = 60f;
 
-
-
     void Start()
     {
       SetCountText();
