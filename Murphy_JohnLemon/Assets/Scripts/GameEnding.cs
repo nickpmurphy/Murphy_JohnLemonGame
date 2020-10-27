@@ -19,12 +19,14 @@ public class GameEnding : MonoBehaviour
     float m_Timer;
     bool m_HasAudioPlayed;
     public TextMeshProUGUI countText;
+    public TextMeshProUGUI gameText;
 
     public float timeLeft = 60f;
 
     void Start()
     {
       SetCountText();
+      SetGameText();
     }
     // writing triggers for when player is at exit
     void onTriggerEnter(Collider other)
@@ -39,6 +41,12 @@ public class GameEnding : MonoBehaviour
     {
 
       countText.text = "Time Left: " + timeLeft.ToString();
+    }
+
+    void SetGameText()
+    {
+
+      gameText.text = "Shoot and avoid enemies, find the key!";
     }
 
     // bool function updating IsPlayerCaught boolean
@@ -69,6 +77,7 @@ public class GameEnding : MonoBehaviour
       }
 
       SetCountText();
+      SetGameText();
     }
 
     void EndLevel (CanvasGroup imageCanvasGroup, bool doRestart, AudioSource audioSource)
