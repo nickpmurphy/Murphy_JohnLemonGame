@@ -33,6 +33,8 @@ public class PlayerMovement : MonoBehaviour
     {
       if (Input.GetKeyDown(KeyCode.Space))
       {
+
+        // instiantiate sphere when key is pressed down, and actually shoot it forward instead of spawning in place
         GameObject projectile = Instantiate(projectilePrefab, shotSpawn.transform.position, projectilePrefab.transform.rotation);
         Rigidbody projectileRB = projectile.GetComponent<Rigidbody>();
         projectileRB.velocity = transform.forward * shotSpeed;

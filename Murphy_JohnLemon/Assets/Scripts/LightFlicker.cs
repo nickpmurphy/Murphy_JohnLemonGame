@@ -12,7 +12,7 @@ public class LightFlicker : MonoBehaviour
         Random,
         AnimationCurve
     }
-    
+
     public Light flickeringLight;
     public Renderer flickeringRenderer;
     public FlickerMode flickerMode;
@@ -25,9 +25,9 @@ public class LightFlicker : MonoBehaviour
     Color m_EmissionColor;
     float m_Timer;
     float m_FlickerLightIntensity;
-    
+
     static readonly int k_EmissionColorID = Shader.PropertyToID (k_EmissiveColorName);
-    
+
     const string k_EmissiveColorName = "_EmissionColor";
     const string k_EmissionName = "_Emission";
     const float k_LightIntensityToEmission = 2f / 3f;
@@ -54,7 +54,7 @@ public class LightFlicker : MonoBehaviour
         {
             ChangeAnimatedFlickerLightIntensity ();
         }
-            
+
         flickeringLight.intensity = m_FlickerLightIntensity;
         m_FlickeringMaterial.SetColor (k_EmissionColorID, m_EmissionColor * m_FlickerLightIntensity * k_LightIntensityToEmission);
     }
@@ -107,7 +107,7 @@ public class LightFlickerEditor : Editor
         GUI.enabled = false;
         EditorGUILayout.PropertyField (m_ScriptProp);
         GUI.enabled = true;
-        
+
         EditorGUILayout.PropertyField (m_FlickeringLightProp);
         EditorGUILayout.PropertyField (m_FlickeringRendererProp);
         EditorGUILayout.PropertyField (m_FlickerModeProp);

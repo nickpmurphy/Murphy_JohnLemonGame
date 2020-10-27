@@ -10,8 +10,10 @@ public class EnemyHealth : MonoBehaviour
 
         public void TakeDamage(int damageAmount)
         {
+          // subtract enemy health by projectile damage
           health -= damageAmount;
 
+          // destroy enemy if health is under 0
           if (health <= 0)
           {
             Destroy(gameObject);

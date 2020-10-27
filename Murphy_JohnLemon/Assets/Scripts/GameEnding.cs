@@ -25,6 +25,8 @@ public class GameEnding : MonoBehaviour
 
     void Start()
     {
+
+      // display text at start of game
       SetCountText();
       SetGameText();
     }
@@ -39,13 +41,13 @@ public class GameEnding : MonoBehaviour
 
     void SetCountText()
     {
-
+      // count text variable assignment
       countText.text = "Time Left: " + timeLeft.ToString();
     }
 
     void SetGameText()
     {
-
+      // game text variable assignment
       gameText.text = "Shoot and avoid enemies, find the key!";
     }
 
